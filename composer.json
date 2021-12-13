@@ -1,0 +1,54 @@
+{
+    "name": "zarate-systems/laravel-cognito-auth",
+    "description": "An authentication driver for Laravel for authenticating users in AWS Cognito User Pools.",
+    "keywords": [
+        "zarate-systems",
+        "laravel-cognito-auth"
+    ],
+    "homepage": "https://github.com/zarate-systems/laravel-cognito-auth",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Erick Zarate",
+            "email": "zaraterick@outlook.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.4|^8.0",
+        "illuminate/support": "^8.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.0",
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "ZarateSystems\\LaravelCognitoAuth\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ZarateSystems\\LaravelCognitoAuth\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "ZarateSystems\\LaravelCognitoAuth\\LaravelCognitoAuthServiceProvider"
+            ],
+            "aliases": {
+                "LaravelCognitoAuth": "ZarateSystems\\LaravelCognitoAuth\\LaravelCognitoAuthFacade"
+            }
+        }
+    }
+}
