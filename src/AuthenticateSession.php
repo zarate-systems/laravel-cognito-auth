@@ -4,6 +4,7 @@ namespace ZarateSystems\LaravelCognitoAuth;
 
 use Closure;
 use Illuminate\Contracts\Auth\Factory as AuthFactory;
+use Illuminate\Http\Request;
 
 class AuthenticateSession
 {
@@ -31,7 +32,7 @@ class AuthenticateSession
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle(Request $request, Closure $next)
     {
         $this->auth->user();
 
