@@ -2,6 +2,11 @@
     "name": "zarate-systems/laravel-cognito-auth",
     "description": "An authentication driver for Laravel for authenticating users in AWS Cognito User Pools.",
     "keywords": [
+        "php",
+        "laravel",
+        "auth",
+        "aws",
+        "cognito",
         "zarate-systems",
         "laravel-cognito-auth"
     ],
@@ -9,6 +14,11 @@
     "license": "MIT",
     "type": "library",
     "authors": [
+        {
+            "name": "Arran Jacques",
+            "email": "arranjacques@gmail.com",
+            "role": "Developer"
+        },
         {
             "name": "Erick Zarate",
             "email": "zaraterick@outlook.com",
