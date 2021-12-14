@@ -2,6 +2,7 @@
 
 namespace ZarateSystems\LaravelCognitoAuth;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;
 
 class LaravelCognitoAuthServiceProvider extends ServiceProvider
@@ -11,37 +12,15 @@ class LaravelCognitoAuthServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        /*
-         * Optional methods to load your package assets
-         */
-        // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'laravel-cognito-auth');
-        // $this->loadViewsFrom(__DIR__.'/../resources/views', 'laravel-cognito-auth');
-        // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
-        // $this->loadRoutesFrom(__DIR__.'/routes.php');
-
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__.'/../config/config.php' => config_path('laravel-cognito-auth.php'),
+                __DIR__.'/../config/aws-cognito-auth.php' => config_path('aws-cognito-auth.php'),
             ], 'config');
-
-            // Publishing the views.
-            /*$this->publishes([
-                __DIR__.'/../resources/views' => resource_path('views/vendor/laravel-cognito-auth'),
-            ], 'views');*/
-
-            // Publishing assets.
-            /*$this->publishes([
-                __DIR__.'/../resources/assets' => public_path('vendor/laravel-cognito-auth'),
-            ], 'assets');*/
-
-            // Publishing the translation files.
-            /*$this->publishes([
-                __DIR__.'/../resources/lang' => resource_path('lang/vendor/laravel-cognito-auth'),
-            ], 'lang');*/
-
-            // Registering package commands.
-            // $this->commands([]);
         }
+
+        $this->registerGuard();
+
+        $this->defineConstants();
     }
 
     /**
@@ -49,12 +28,47 @@ class LaravelCognitoAuthServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        // Automatically apply the package configuration
-        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'laravel-cognito-auth');
+        $this->mergeConfigFrom(__DIR__.'/../config/aws-cognito-auth.php', 'aws-cognito-auth');
+    }
 
-        // Register the main class to use with the facade
-        $this->app->singleton('laravel-cognito-auth', function () {
-            return new LaravelCognitoAuth;
+    /**
+     * Register the AWS Cognito guard.
+     */
+    protected function registerGuard()
+    {
+        Auth::extend('aws-cognito', function ($app, $name, array $config) {
+            $client = $app->make('aws')->createCognitoIdentityProvider();
+            $provider = Auth::createUserProvider($config['provider']);
+            $guard = new AwsCognitoIdentityGuard(
+                $name,
+                $client,
+                $provider,
+                $app['session.store'],
+                $app['request'],
+                $app['config']['aws-cognito-auth']
+            );
+
+            $guard->setCookieJar($this->app['cookie']);
+
+            $guard->setDispatcher($this->app['events']);
+
+            $guard->setRequest($this->app->refresh('request', $guard, 'setRequest'));
+
+            return $guard;
         });
+    }
+
+    /**
+     * Define constants related to the package.
+     */
+    public function defineConstants()
+    {
+        if (!defined('AWS_COGNITO_AUTH_THROW_EXCEPTION')) {
+            define('AWS_COGNITO_AUTH_THROW_EXCEPTION', 'throw-exception');
+        }
+
+        if (!defined('AWS_COGNITO_AUTH_RETURN_ATTEMPT')) {
+            define('AWS_COGNITO_AUTH_RETURN_ATTEMPT', 'return-attempt');
+        }
     }
 }

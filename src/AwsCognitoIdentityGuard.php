@@ -48,7 +48,7 @@ class AwsCognitoIdentityGuard implements StatefulGuard
      *
      * @var \Illuminate\Contracts\Auth\Authenticatable
      */
-    protected AuthenticatableContract $lastAttempted;
+    protected $lastAttempted;
 
     /**
      * Indicates if the user was authenticated via a recaller cookie.

@@ -35,10 +35,7 @@
         "laravel": {
             "providers": [
                 "ZarateSystems\\LaravelCognitoAuth\\LaravelCognitoAuthServiceProvider"
-            ],
-            "aliases": {
-                "LaravelCognitoAuth": "ZarateSystems\\LaravelCognitoAuth\\LaravelCognitoAuthFacade"
-            }
+            ]
         }
     }
 }

@@ -34,7 +34,7 @@ class AuthenticateSession
      */
     public function handle(Request $request, Closure $next)
     {
-        $this->auth->user();
+        $request->user();
 
         return $next($request);
     }
