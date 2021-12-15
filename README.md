@@ -399,7 +399,7 @@ If you discover any security related issues, please email zaraterick@outlook.com
 ## Credits
 
 -   [Arran Jacques](https://github.com/ArranJacques)
--   [Erick Zarate](https://github.com/zarate-systems)
+-   [Erick Zarate](https://github.com/ErickZH)
 -   [All Contributors](../../contributors)
 
 ## License
