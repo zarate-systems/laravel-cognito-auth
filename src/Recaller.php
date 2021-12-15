@@ -14,7 +14,7 @@ class Recaller
     /**
      * Create a new recaller instance.
      *
-     * @param string $recaller
+     * @param  string  $recaller
      */
     public function __construct(string $recaller)
     {
@@ -52,7 +52,7 @@ class Recaller
 
         $expDate = $this->cognitoRefreshTokenExpTime();
 
-        if (is_null($expDate) OR $expDate < time()) {
+        if (is_null($expDate) or $expDate < time()) {
             return null;
         }
 

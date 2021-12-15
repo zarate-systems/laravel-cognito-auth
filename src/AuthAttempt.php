@@ -17,8 +17,8 @@ class AuthAttempt
     /**
      * AuthAttempt constructor.
      *
-     * @param bool $successful
-     * @param array $response
+     * @param  bool  $successful
+     * @param  array  $response
      */
     public function __construct(bool $successful, array $response = [])
     {

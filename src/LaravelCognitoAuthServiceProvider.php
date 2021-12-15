@@ -63,11 +63,11 @@ class LaravelCognitoAuthServiceProvider extends ServiceProvider
      */
     public function defineConstants()
     {
-        if (!defined('AWS_COGNITO_AUTH_THROW_EXCEPTION')) {
+        if (! defined('AWS_COGNITO_AUTH_THROW_EXCEPTION')) {
             define('AWS_COGNITO_AUTH_THROW_EXCEPTION', 'throw-exception');
         }
 
-        if (!defined('AWS_COGNITO_AUTH_RETURN_ATTEMPT')) {
+        if (! defined('AWS_COGNITO_AUTH_RETURN_ATTEMPT')) {
             define('AWS_COGNITO_AUTH_RETURN_ATTEMPT', 'return-attempt');
         }
     }
