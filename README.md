@@ -89,7 +89,7 @@ Add the following to the `.env` file.
 ```dotenv
 AWS_ACCESS_KEY_ID=YOUR_ACCESS_KEY_ID
 AWS_SECRET_ACCESS_KEY=YOUR_SECRET_ACCESS_KEY
-AWS_DEFAULT_REGION=YOUR_DEFAULT_REGION
+AWS_REGION=YOUR_DEFAULT_REGION
 ```
 
 Where `AWS_ACCESS_KEY_ID` is an IAM user Access Key Id and `AWS_SECRET_ACCESS_KEY` is the corresponding Secret key.
