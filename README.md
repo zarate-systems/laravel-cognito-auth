@@ -2,6 +2,7 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/zarate-systems/laravel-cognito-auth.svg?style=flat-square)](https://packagist.org/packages/zarate-systems/laravel-cognito-auth)
 [![Total Downloads](https://img.shields.io/packagist/dt/zarate-systems/laravel-cognito-auth.svg?style=flat-square)](https://packagist.org/packages/zarate-systems/laravel-cognito-auth)
+[![StyleCI](https://github.styleci.io/repos/438319368/shield?branch=master)](https://github.styleci.io/repos/438319368?branch=master)
 
 This package is forked from [ArranJacques/laravel-aws-cognito-auth](https://github.com/ArranJacques/laravel-aws-cognito-auth) but updated to Laravel 8.
 
