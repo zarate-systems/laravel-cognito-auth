@@ -1,5 +1,6 @@
 # Laravel AWS Cognito Auth
 
+![Banner](img/laravel-cognito-auth.png)
 [![Total Downloads](https://img.shields.io/packagist/dt/zarate-systems/laravel-cognito-auth.svg?style=flat-square)](https://packagist.org/packages/zarate-systems/laravel-cognito-auth)
 [![StyleCI](https://github.styleci.io/repos/438319368/shield?branch=master)](https://github.styleci.io/repos/438319368?branch=master)
 
