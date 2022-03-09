@@ -26,7 +26,7 @@ class AuthAttemptException extends RuntimeException
     /**
      * @return array|null
      */
-    public function getResponse()
+    public function getResponse(): array|null
     {
         return $this->response;
     }

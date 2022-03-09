@@ -331,7 +331,7 @@ class AwsCognitoIdentityGuard implements StatefulGuard
                 'ClientId' => $this->getDefaultAppConfig()['client-id'],
                 'UserPoolId' => $this->config['pool-id'],
             ]);
-        } catch (CognitoIdentityProviderException $e) {
+        } catch (CognitoIdentityProviderException $exception) {
             return null;
         }
 
