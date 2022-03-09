@@ -6,7 +6,7 @@
 
 This package is forked from [ArranJacques/laravel-aws-cognito-auth](https://github.com/ArranJacques/laravel-aws-cognito-auth) but updated to Laravel 8.
 
-A simple authentication package for Laravel 8 for authenticating users in Amazon Cognito User Pools.
+A simple authentication package for Laravel 8 and 9 for authenticating users in Amazon Cognito User Pools.
 
 This is package works with Laravel's native authentication system and allows the authentication of users that are already registered in Amazon Cognito User Pools. It does not provide functionality for user management, i.e., registering user's into User Pools, password resets, etc.
 
@@ -15,6 +15,11 @@ This is package works with Laravel's native authentication system and allows the
 This package makes use of the aws-sdk-php-laravel package. As well as setting up and configuring this package you'll also need to configure aws-sdk-php-laravel for the authentication to work. Instructions on how to do this are below. If you've already installed, set up and configured aws-sdk-php-laravel you can skip the parts where it's mentioned below.
 
 You can install the package via composer:
+
+| Laravel | Version |
+|---------|---------|
+| 8       | 1.0.0   |
+| 9       | 2.0.0   |
 
 ```bash
 composer require zarate-systems/laravel-cognito-auth
